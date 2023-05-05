@@ -25,7 +25,7 @@ The purpose of this project was to explore how capable was a properly designed c
 The number of nodes within the network is purely dictated by the resolution of the image, we found that a **48x48** image resolution was adequate (with the images being grayscaled), as higher resolutions resulted in longer runtimes without significant gains in accuracy. Moreover, we used the **TanH** activation functions throughout the network except for the output layer, where **Sigmoid** was used.
 
 ### Sampling and Training
-There are two sampling methods included in both files **Random sampling with replacement** and **Random sampling without replacement**. Of course, sampling with replacement produced better results than without. Regardless of which sampling method is used, the *Scratch* model is set to train for exactly **40 Epochs** while the *Tensorflow* model for **15 Epochs**. We achieved the best results with this configuration. The differences in number of epochs are due to the different learning rates set in the different approaches.
+**Random sampling without replacement** was exclusively used for selecting the data from the original data, then for selecting the batches. While one single batch cannot contain two of the same images, multiple batches can have overlapping images. The *Scratch* model is set to train for exactly **40 Epochs** while the *Tensorflow* model for **15 Epochs**. We achieved the best results with this configuration. The differences in number of epochs are due to the different learning rates set in the different approaches. Lastly, a fixed 46 batch size was used for both models.
 
 ### Results overview (without replacement)
  - **Scratch Model:**
