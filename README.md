@@ -19,18 +19,18 @@ The purpose of this project was to explore how capable was a properly designed c
  - **1st Hidden layer** - *1024 Nodes*
  - **2nd Hidden layer** - *512 Nodes*
  - **3rd Hidden layer** - *256 Nodes*
- - **Output layer** - *1/2 Node(s) (Depending on approach)*
+ - **Output layer** - *1 Node*
 
 ### Image resolution and Activation Functions
-The number of nodes within the network is purely dictated by the resolution of the image, we found that a **48x48** image resolution was adequate (with the images being grayscaled), as higher resolutions resulted in longer runtimes without significant gains in accuracy. Moreover, we used the **TanH** activation functions throughout the network except for the output layer, where **Softmax** was used for the *Scratch* approach and *Sigmoid* in the *Tensorflow* approach.
+The number of nodes within the network is purely dictated by the resolution of the image, we found that a **48x48** image resolution was adequate (with the images being grayscaled), as higher resolutions resulted in longer runtimes without significant gains in accuracy. Moreover, we used the **TanH** activation functions throughout the network except for the output layer, where **Sigmoid** was used.
 
 ### Sampling and Training
-There are two sampling methods included in both files **Random sampling with replacement** and **random sampling without replacement**. Of course, sampling with replacement produced better results than without. Regardless of which sampling method is used, the *Scratch* model is set to train for exactly **40 Epochs** while the *Tensorflow* model for **15 Epochs**. We achieved the best results with this configuration. The differences in number of epochs are due to the different learning rates set in the different approaches.
+There are two sampling methods included in both files **Random sampling with replacement** and **Random sampling without replacement**. Of course, sampling with replacement produced better results than without. Regardless of which sampling method is used, the *Scratch* model is set to train for exactly **40 Epochs** while the *Tensorflow* model for **15 Epochs**. We achieved the best results with this configuration. The differences in number of epochs are due to the different learning rates set in the different approaches.
 
 ### Results overview (without replacement)
  - **Scratch Model:**
    - *Best results* - ***87.5% Accuracy, 0.32 Loss***
-   - *Average results* - ***~82% Accuracy, 0.45 Loss***
+   - *Average results* - ***~81% Accuracy, 0.45 Loss***
 
 - **Tensorflow Model:**
    - *Best results* - ***82.5% Accuracy, 0.37 Loss***
@@ -48,7 +48,7 @@ In order to run and test this project, the following is needed:
 ## Installation and How to use
 
 ### Clone the repository
-You can either use the following command in your terminal or just download it directly from GitHub 
+You can either use the following command in your terminal or just download it directly from GitHub.
 
 ```git
 git clone https://github.com/EdinZiga/PneumoniaImagesANN
@@ -57,16 +57,16 @@ git clone https://github.com/EdinZiga/PneumoniaImagesANN
 Make sure to remember where you clone it as you will need it in the following steps.
 
 ### Download and extract the dataset
-The dataset that can be found [here](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia). Extract the file into the cloned repository
+The dataset that can be found [here](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia). Extract the file into the cloned repository.
 
 ### Open the project using Jupyter Notebook
-Navigate to the repository within your terminal, and open it using Jupyter Notebook
+Navigate to the repository within your terminal, and open it using Jupyter Notebook.
 ```terminal
 C:\...\PneumoniaImagesAnn>jupyter notebook
 ```
 
 ### Install the necessary packages
-Make sure that you have all the necessary packages installed before running to ensure no errors appear
+Make sure that you have all the necessary packages installed before running to ensure no errors appear.
 ```python
 !pip install pillow
 !pip install tqdm
