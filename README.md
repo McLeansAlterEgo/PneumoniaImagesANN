@@ -1,13 +1,9 @@
 # Pneumonia Images Classification using Artificial Neural Networks
 
-The final project and supporting work for the CS404 Artificial Intelligence paper. This project incorporates the following two methods of creating neural networks:
+The final project and supporting work for the CS404 Artificial Intelligence paper. This project incorporates a neural network from scratch based on **Kinsley, H., & Kukieła, D. (2019). Neural Networks from Scratch in Python.** The implementation can be found in the following file:
+ 
+ - ***PneumoniaImagesANNScratch.ipynb***
 
- - From Scratch based on **Kinsley, H., & Kukieła, D. (2019). Neural Networks from Scratch in Python.**
- - Using the open-source **Tensorflow Library**
-
-The two different approaches are split into two different files:
- - PneumoniaImagesANNScratch.ipynb
- - PneumoniaImagesANNTensorFlow.ipynb
 
 ## Proposed Network Structure, Methodology and Results Overview
 
@@ -22,19 +18,14 @@ The purpose of this project was to explore how capable was a properly designed c
  - **Output layer** - *1 Node*
 
 ### Image resolution and Activation Functions
-The number of nodes within the network is purely dictated by the resolution of the image, we found that a **48x48** image resolution was adequate (with the images being grayscaled), as higher resolutions resulted in longer runtimes without significant gains in accuracy. Moreover, we used the **TanH** activation functions throughout the network except for the output layer, where **Sigmoid** was used.
+The number of nodes within the network is purely dictated by the resolution of the image, we found that a **48x48** image resolution was adequate (with the images being gray scaled), as higher resolutions resulted in longer runtimes without significant gains in accuracy. Moreover, we used the **TanH** activation functions throughout the network except for the output layer, where **Sigmoid** was used.
 
 ### Sampling and Training
-**Random sampling without replacement** was exclusively used for selecting the data from the original data, then for selecting the batches. While one single batch cannot contain two of the same images, multiple batches can have overlapping images. The *Scratch* model is set to train for exactly **40 Epochs** while the *Tensorflow* model for **15 Epochs**. We achieved the best results with this configuration. The differences in number of epochs are due to the different learning rates set in the different approaches. Lastly, a fixed 46 batch size was used for both models.
+**Random sampling without replacement** was exclusively used for selecting the data from the original data, then for selecting the batches. While one single batch cannot contain two of the same images, multiple batches can have overlapping images. The model is set to train for exactly **40 Epochs**. We achieved the best results with this configuration. Lastly, a fixed 46 batch size was used.
 
-### Results overview (without replacement)
- - **Scratch Model:**
-   - *Best results* - ***87.5% Accuracy, 0.32 Loss***
-   - *Average results* - ***~81% Accuracy, 0.45 Loss***
-
-- **Tensorflow Model:**
-   - *Best results* - ***82.5% Accuracy, 0.37 Loss***
-   - *Average results* - ***~81% Accuracy, 0.43 Loss***
+### Results overview:
+   - *Best results* - ***91% Accuracy, 0.31 Loss***
+   - *Average results* - ***~83% Accuracy, 0.37 Loss***
 
 ## Requirements
 
@@ -43,7 +34,7 @@ In order to run and test this project, the following is needed:
  - Latest version of **JupyterLab** and **Jupyter Notebook**
  - The images from the dataset that can be found [here](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia).
  - Latest version of **Git (Optional)**
- - All **!pip install** packages at the start of each file
+ - All packages at the start of the file
 
 ## Installation and How to use
 
@@ -67,13 +58,25 @@ C:\...\PneumoniaImagesAnn>jupyter notebook
 
 ### Install the necessary packages
 Make sure that you have all the necessary packages installed before running to ensure no errors appear.
+Packages used can be found below:
+
 ```python
-!pip install pillow
-!pip install tqdm
-!pip install numpy
-!pip install tensorflow
-!pip install pydot
-!pip install pydot_ng 
+import os
+import numpy as np
+import pydot
+import graphviz
+import random
+import matplotlib.pyplot as plt
+import pandas as pd
+
+from PIL import Image
+from tqdm import tqdm
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.utils import plot_model
+from sklearn.metrics import confusion_matrix, roc_curve, auc
+from sklearn.metrics import ConfusionMatrixDisplay
 ```
 
 ### Confirm the directories are correct
@@ -86,7 +89,7 @@ directory = r"D:\PythonProjects\PneumoninaANN\chest_xray\test\PNEUMONIA"
 ```
 
 ### Run the blocks of code and go do something else
-The networks from scratch take around ~2 minutes to run, therefore, get some reading material. 
+The network from scratch takes a bit to run, depending on your setup, that might be a while. Prepare some reading material. 
 
 ## Contributing
 
