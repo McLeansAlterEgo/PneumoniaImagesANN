@@ -72,9 +72,6 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.utils import plot_model
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 from sklearn.metrics import ConfusionMatrixDisplay
 ```
